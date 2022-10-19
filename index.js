@@ -1,3 +1,1 @@
-const LinkedList = require("./LinkedList.js");
-
-module.exports = LinkedList;
+module.exports = { LinkedList: require("./LinkedList.js") };

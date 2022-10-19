@@ -1,7 +1,6 @@
 {
   "name": "linked-list",
   "version": "1.0.0",
-  "type": "module",
   "description": "A javascript implementation of the linked list data structure.",
   "main": "index.js",
   "scripts": {
