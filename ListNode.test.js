@@ -4,9 +4,12 @@ describe("List node", () => {
   test("singly list node", () => {
     const nextNode = new Node(0, 14);
     const node = new Node(0, 5, nextNode);
+    const nullNode = new Node();
     expect(node.data).toBe(5);
     expect(node.next).toBe(nextNode);
     expect(node.prev).toBeUndefined();
+    expect(nullNode.data).toBeNull();
+    expect(nullNode.next).toBeNull();
   });
   test("singly circular list node", () => {
     const nextNode = new Node(1, 77);

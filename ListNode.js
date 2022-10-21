@@ -1,5 +1,5 @@
 class Node {
-  constructor(mode, data = null, next = null, prev = null) {
+  constructor(mode = 0, data = null, next = null, prev = null) {
     this.data = data;
     this.next = next;
     if (mode > 1) {

@@ -1,3 +1,5 @@
+const Node = require("./ListNode");
+
 /*
     Linked List modes:
     0: singly,
@@ -5,13 +7,29 @@
     2: doubly,
     3: double circular
 */
-const Node = require("./ListNode");
+
 class LinkedList {
   constructor(mode = 0) {
     this.head = null;
     this.tail = null;
     this.length = 0;
     this.mode = mode;
+  }
+
+  static Singly() {
+    return new LinkedList();
+  }
+
+  static Circular() {
+    return new LinkedList(1);
+  }
+
+  static Doubly() {
+    return new LinkedList(2);
+  }
+
+  static DoublyCircular() {
+    return new LinkedList(3);
   }
 
   insertAtHead(data) {
@@ -77,7 +95,11 @@ class LinkedList {
           this.head,
           this.tail
         );
-        if (this.length) this.tail.next = newDoublyCircularTail;
+        if (this.length) {
+          this.tail.next = newDoublyCircularTail;
+          this.head.prev = newDoublyCircularTail;
+        }
+
         this.tail = newDoublyCircularTail;
         break;
       }
@@ -95,6 +117,74 @@ class LinkedList {
       headTemp = headTemp.next;
     }
     return undefined;
+  }
+
+  getNodeByIndex(index) {
+    if (index >= this.length || index < 0) {
+      throw new RangeError("Invaild index!");
+    }
+    let headTemp = this.head;
+    for (let i = 0; i < this.length; i++) {
+      if (i === index) return headTemp;
+      headTemp = headTemp.next;
+    }
+  }
+  deleteHead() {
+    if (!this.length) {
+      throw new Error("You cannot delete from an empty list!");
+    }
+    switch (this.mode) {
+      case 0: {
+        this.head = this.head.next;
+        break;
+      }
+      case 1: {
+        this.head = this.head.next;
+        this.tail.next = this.head;
+        break;
+      }
+      case 2: {
+        this.head = this.head.next;
+        this.head.prev = null;
+        break;
+      }
+      case 3: {
+        this.head = this.head.next;
+        this.head.prev = this.tail;
+        this.tail.next = this.head;
+        break;
+      }
+    }
+    this.length--;
+  }
+  deleteTail() {
+    if (!this.length) {
+      throw new Error("You cannot delete from an empty list!");
+    }
+    switch (this.mode) {
+      case 0: {
+        this.tail = this.getNodeByIndex(this.length - 2);
+        this.tail.next = null;
+        break;
+      }
+      case 1: {
+        this.tail = this.getNodeByIndex(this.length - 2);
+        this.tail.next = this.head;
+        break;
+      }
+      case 2: {
+        this.tail = this.getNodeByIndex(this.length - 2);
+        this.tail.next = null;
+        break;
+      }
+      case 3: {
+        this.tail = this.getNodeByIndex(this.length - 2);
+        this.tail.next = this.head;
+        this.head.prev = this.tail;
+        break;
+      }
+    }
+    this.length--;
   }
 }
 
