@@ -1,4 +1,4 @@
-const Node = require("./ListNode");
+const Node = require("./index");
 
 describe("List node", () => {
   test("singly list node", () => {

@@ -30,13 +30,30 @@ class LinkedList {
   static DoublyCircular() {
     return new LinkedList(3);
   }
-  find(check) {
-    let headTemp = this.head;
+
+  print() {
+    let listString = "";
+    let pointer = this.head;
+    const startSymbol = ["", "tail <-", "", "tail <-"];
+    const transitions = ["->", "->", "⇔", "⇔"];
+    const endSymbol = ["null", "-> head", "null", "-> head"];
+    listString = listString.concat(startSymbol[this.mode]);
     for (let i = 0; i < this.length; i++) {
-      if (check(headTemp.data, i)) {
-        return headTemp;
+      listString = listString.concat(
+        `${pointer.data} ${transitions[this.mode]} `
+      );
+      pointer = pointer.next;
+    }
+    listString = listString.concat(endSymbol[this.mode]);
+    console.log(listString);
+  }
+  find(check) {
+    let pointer = this.head;
+    for (let i = 0; i < this.length; i++) {
+      if (check(pointer.data, i)) {
+        return pointer;
       }
-      headTemp = headTemp.next;
+      pointer = pointer.next;
     }
     return undefined;
   }
@@ -45,10 +62,10 @@ class LinkedList {
     if (index >= this.length || index < 0) {
       throw new RangeError("Invaild index!");
     }
-    let temp = this.head;
+    let pointer = this.head;
     for (let i = 0; i < this.length; i++) {
-      if (i === index) return temp;
-      temp = temp.next;
+      if (i === index) return pointer;
+      pointer = pointer.next;
     }
   }
   insertNodeAtIndex(index, data) {
