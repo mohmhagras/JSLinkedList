@@ -392,3 +392,15 @@ describe("#DeleteNodeAtIndex", () => {
     expect(list.getNodeByIndex(3).data).toBe(90);
   });
 });
+
+describe("#print", () => {
+  test("prints properly", () => {
+    const list = new LinkedList();
+    headInsertion(list);
+    const consoleSpy = jest.spyOn(console, "log");
+
+    list.print();
+
+    expect(consoleSpy).toHaveBeenCalledWith("9 -> 6 -> 5 -> null");
+  });
+});
