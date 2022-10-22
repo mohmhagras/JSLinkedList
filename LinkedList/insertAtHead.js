@@ -1,4 +1,4 @@
-const Node = require("../ListNode/ListNode");
+const Node = require("../ListNode");
 
 function insertAtHead(data) {
   switch (this.mode) {

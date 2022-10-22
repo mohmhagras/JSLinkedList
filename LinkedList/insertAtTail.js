@@ -1,4 +1,4 @@
-const Node = require("../ListNode/ListNode");
+const Node = require("../ListNode");
 
 function insertAtTail(data) {
   switch (this.mode) {

@@ -1,4 +1,4 @@
-const LinkedList = require("./LinkedList.js");
+const LinkedList = require("./index.js");
 
 function mixedInsertion(list) {
   list.insertAtHead(66);

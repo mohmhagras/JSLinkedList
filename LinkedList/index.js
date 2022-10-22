@@ -5,7 +5,7 @@
     2: doubly,
     3: double circular
 */
-const Node = require("../ListNode/ListNode");
+const Node = require("../ListNode");
 
 class LinkedList {
   constructor(mode = 0) {
