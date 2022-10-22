@@ -1,1 +1,1 @@
-module.exports = require("./LinkedList.js");
+module.exports = require("./LinkedList/LinkedList.js");

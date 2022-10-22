@@ -325,3 +325,70 @@ describe("#getNodeByIndex", () => {
     expect(testFunction).toThrow(RangeError);
   });
 });
+
+describe("#InsertNodeAtIndex", () => {
+  test("adds properly when range is valid and list is singly", () => {
+    const list = new LinkedList();
+
+    mixedInsertion(list);
+    list.insertNodeAtIndex(3, 144);
+    const insertedNode = list.getNodeByIndex(3);
+    expect(list.length).toBe(7);
+    expect(insertedNode.data).toBe(144);
+    expect(insertedNode.next.data).toBe(66);
+  });
+
+  test("throws error when range is invalid", () => {
+    const list = new LinkedList();
+
+    mixedInsertion(list);
+    const testFunction = () => {
+      list.insertNodeAtIndex(9, 144);
+    };
+    expect(list.length).toBe(6);
+    expect(testFunction).toThrow("Invaild index!");
+  });
+
+  test("adds properly when range is valid and list is doubly", () => {
+    const list = LinkedList.Doubly();
+    mixedInsertion(list);
+    list.insertNodeAtIndex(3, 144);
+    const insertedNode = list.getNodeByIndex(3);
+    expect(list.length).toBe(7);
+    expect(insertedNode.data).toBe(144);
+    expect(insertedNode.next.data).toBe(66);
+    expect(insertedNode.prev.data).toBe(11);
+    expect(insertedNode.next.prev.data).toBe(144);
+  });
+});
+
+describe("#DeleteNodeAtIndex", () => {
+  test("deletes properly when range is valid and list is singly", () => {
+    const list = new LinkedList();
+
+    mixedInsertion(list);
+    list.deleteNodeAtIndex(3);
+
+    expect(list.length).toBe(5);
+    expect(list.getNodeByIndex(3).data).toBe(90);
+  });
+
+  test("throws error when range is invalid", () => {
+    const list = new LinkedList();
+
+    mixedInsertion(list);
+    const testFunction = () => {
+      list.deleteNodeAtIndex(9);
+    };
+    expect(list.length).toBe(6);
+    expect(testFunction).toThrow("Invaild index!");
+  });
+
+  test("adds properly when range is valid and list is doubly", () => {
+    const list = LinkedList.Doubly();
+    mixedInsertion(list);
+    list.deleteNodeAtIndex(3);
+    expect(list.length).toBe(5);
+    expect(list.getNodeByIndex(3).data).toBe(90);
+  });
+});
