@@ -1,6 +1,6 @@
-# JSLinkedList
+# JS Linked List
 
-Javascript Linked list implmentation.
+Javascript Linked list data structure implmentation.
 
 [![codecov](https://codecov.io/github/mohagras903/JSLinkedList/branch/main/graph/badge.svg?token=P4ZX9SAEHX)](https://codecov.io/github/mohagras903/JSLinkedList)
 
@@ -13,10 +13,10 @@ Javascript Linked list implmentation.
 
 ## Installation
 
-Install jslinkedlist with npm
+Install js-ds-ll with npm
 
 ```bash
-  npm install jslinkedlist
+  npm install js-ds-ll
 ```
 
 ## Usage

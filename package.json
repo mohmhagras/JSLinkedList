@@ -1,5 +1,5 @@
 {
-  "name": "jslinkedlist",
+  "name": "js-ds-ll",
   "version": "1.0.0",
   "description": "A javascript implementation of the linked list data structure.",
   "main": "index.js",
