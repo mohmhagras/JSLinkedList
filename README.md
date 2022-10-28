@@ -24,7 +24,7 @@ Install js-ds-ll with npm
 ### Defintion
 
 ```javascript
-import LinkedList from "jslinkedlist";
+import LinkedList from "js-ds-ll";
 
 //singly list
 const singlyList = new LinkedList();
